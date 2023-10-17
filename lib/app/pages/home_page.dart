@@ -1,3 +1,6 @@
+import 'package:consumo_api_flutter/app/data/http/http_client.dart';
+import 'package:consumo_api_flutter/app/data/repositories/produto_repository.dart';
+import 'package:consumo_api_flutter/app/pages/home/stores/product_store.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,11 +11,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final ProductStore store = ProductStore(
+      repository: ProdutocRepository(
+    client: HttpClient(),
+  ));
+
   @override
   void initState() {
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
